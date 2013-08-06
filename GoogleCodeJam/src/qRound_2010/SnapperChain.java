@@ -8,85 +8,60 @@ import java.io.PrintWriter;
 
 public class SnapperChain
 {
-
 	private static PrintWriter pw;
 	private static boolean test;
 	private static BufferedReader br;
 
-	public static void main( String[] args ) throws Exception
+	public static void main(String[] args) throws Exception
 	{
-		// Imprimir a la consola (true) o al archivo (false)
 		test = false;
-		String baseName = "A-small-practice"; // Nombre del archivo
+		String carpeta = "./data/qRound_2010/SnapperChain/";
+		String archivo = "A-large-practice";
 
 		pw = null;
-		if( !test )
-		{
-			pw = new PrintWriter( new File( "./data/" + baseName + ".out" ) );
-		}
+		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
-		// Abrir el archivo con los datos de entrada
-		br = new BufferedReader( new FileReader( new File( "./data/" + baseName + ".in" ) ) );
+		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
+		solucionarProblema();
 
-		solucionarProblema( );
-
-		// Si no era una prueba, cerrar el archivo de salida
-		if( !test )
-		{
-			pw.close( );
-		}
-
+		if(!test)pw.close();
 	}
 
-	/**
-	 * Imprimir una soluci�n al problema <br/>
-	 * . Si el atributo test es verdadero, imprime a la salida est�ndar. Si es falso imprime al archivo de salida.
-	 * @param solucion
-	 */
-	private static void imprimirSolucion( String solucion )
+	private static void solucionarProblema() throws IOException
 	{
-		if( test )
-		{
-			System.out.println( solucion );
-		}
-		else
-		{
-			pw.println( solucion );
-		}
-	}
+		int casos = Integer.parseInt(br.readLine());
+		for (int i = 0; i < casos; i++) {
 
-	/**
-	 * Este es el m�todo que realmente soluciona el problema
-	 * @throws IOException
-	 */
-	private static void solucionarProblema( ) throws IOException
-	{
-		int cases = Integer.parseInt( br.readLine( ) );
-		int i = 0;
-		while( i < cases )
-		{
-			final String caso =  br.readLine( );
-			String rta = "ON";
-			String[] palabras=caso.split(" ");
-			int n=Integer.parseInt(palabras[0]);
-			int k=Integer.parseInt(palabras[1]);
+			// Separar informacion pertinente
 
-			String binario=Integer.toBinaryString(k);
-			char[] digitos=binario.toCharArray();
-			int j=0;
-			for (j = digitos.length-1; j >=0 && n>0 ; j--) {
-				if(digitos[j]=='0'){
-					rta="OFF";
-					n=0;
-				}
-				n--;
-			}
+			String[] paramProblem=br.readLine().split(" ");
+			int n=Integer.parseInt(paramProblem[0]);
+			int k=Integer.parseInt(paramProblem[1]);
 
+			String rta = solucionarCaso(n,k);
+
+			//---------------------------------------------
 			String solucion = "Case #"+(i+1)+": "+rta;
-			imprimirSolucion( solucion );
-
-			i++;
+			imprimirSolucion(solucion);
 		}
 	}
 
+	private static String solucionarCaso(int n, int k) {
+		String binario=Integer.toBinaryString(k);
+		String ceros="";
+		
+		if(binario.length()<n)for (int i = binario.length(); i <n ; i++)ceros+="0";	
+		else binario=binario.substring(binario.length()-n);
+		
+		char[]configFinal=(ceros+binario).toCharArray();
+		
+		for (char snapper : configFinal)if(snapper=='0')return "OFF";
+		return "ON";
+	}
+
+	private static void imprimirSolucion(String solucion)
+	{
+		if(test)System.out.println(solucion);
+		else pw.println(solucion);
+	}
 }

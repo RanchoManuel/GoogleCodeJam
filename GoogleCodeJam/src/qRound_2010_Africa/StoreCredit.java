@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 
 public class StoreCredit
 {
-
 	private static PrintWriter pw;
 	private static boolean test;
 	private static BufferedReader br;
@@ -36,9 +35,9 @@ public class StoreCredit
 			// Separar informacion pertinente
 
 			int credito =  Integer.parseInt(br.readLine());
-			
+
 			int numItems =  Integer.parseInt(br.readLine());
-			
+
 			String preciosItems =  br.readLine();
 			String[] precios=preciosItems.split(" ");
 
@@ -50,7 +49,7 @@ public class StoreCredit
 			imprimirSolucion(solucion);
 		}
 	}
-	
+
 	private static String solucionarCaso(int credito, int numItems, String[] precios) 
 	{
 		String rta="";
@@ -67,7 +66,7 @@ public class StoreCredit
 		}
 		return rta;
 	}
-	
+
 	private static void imprimirSolucion(String solucion)
 	{
 		if(test)System.out.println(solucion);

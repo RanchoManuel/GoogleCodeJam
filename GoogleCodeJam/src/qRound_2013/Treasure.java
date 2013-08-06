@@ -8,27 +8,72 @@ import java.io.PrintWriter;
 
 public class Treasure
 {
-
 	private static PrintWriter pw;
 	private static boolean test;
 	private static BufferedReader br;
-	private static Treasure yo= new Treasure();
+	
+	private static Treasure yo;
 
 	public static void main( String[] args ) throws Exception
 	{
-		// Imprimir a la consola (true) o al archivo (false)
+		yo=new Treasure();
+		
 		test = true;
-		String baseName = "D-test"; // Nombre del archivo
+		String carpeta = "./data/qRound_2013/Treasure/";
+		String archivo = "Test";//"A-small-practice"; // TODO
 
 		pw = null;
-		if( !test )pw = new PrintWriter(new File("./data/" + baseName + ".out"));
+		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
-		br = new BufferedReader( new FileReader( new File( "./data/" + baseName + ".in" ) ) );
+		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
+		solucionarProblema();
 
-		solucionarProblema( );
+		if(!test)pw.close();
+	}
 
-		if( !test )	pw.close( );
+	private static void solucionarProblema( ) throws IOException
+	{
+		int casos = Integer.parseInt(br.readLine());
+		for (int i = 0; i < casos; i++)
+		{
+			//Separar informacion pertinente
 
+			String[] paramTesoro=br.readLine().split(" ");
+			int k=Integer.parseInt(paramTesoro[0]);
+			int n=Integer.parseInt(paramTesoro[1]);
+
+			int[] llavesIniciales = new int[k];
+			String[] valorLLavesInic=br.readLine().split(" ");
+			for (int l = 0; l < k; l++)llavesIniciales[l]=Integer.parseInt(valorLLavesInic[l]);
+
+			Cofre[] cofres= new Cofre[n];
+			for (int j = 0; j < n; j++)
+			{
+				String infoCofre=br.readLine();
+				String[] infoCofreAr=infoCofre.split(" ");
+
+				int llaveMiaP=Integer.parseInt(infoCofreAr[0]);
+				int numLLaves=Integer.parseInt(infoCofreAr[1]);
+
+				int[] llavesContenidas = new int[numLLaves];
+				if(infoCofre.length()>3)
+				{
+					String[] llavesContenidasInic=infoCofre.substring(4).split(" ");
+					for (int l = 0; l < numLLaves; l++)llavesContenidas[l]=Integer.parseInt(llavesContenidasInic[l]);
+				}
+				cofres[j] = yo.new Cofre(llaveMiaP, llavesContenidas);
+			}
+
+			String rta = solucionarCaso(k,llavesIniciales,n,cofres);
+
+			String solucion = "Case #"+(i+1)+": "+rta;
+			imprimirSolucion( solucion );			
+		}
+	}
+
+	private static String solucionarCaso(int k, int[] llavesIniciales, int n, Cofre[] cofres)
+	{
+		return "IMPOSSIBLE";
 	}
 
 	private static void imprimirSolucion( String solucion )
@@ -37,52 +82,8 @@ public class Treasure
 		else pw.println( solucion );
 	}
 
-	private static void solucionarProblema( ) throws IOException
+	private class Cofre
 	{
-		int cases = Integer.parseInt( br.readLine( ) );
-		int i = 0;
-		while( i < cases )
-		{
-			String rta = "";
-
-			String[] lK_N=br.readLine( ).split(" ");
-			int k=Integer.parseInt(lK_N[0]);
-			int n=Integer.parseInt(lK_N[1]);
-
-			int[] llavesIniciales = new int[k];
-			String[] valorLLavesInic=br.readLine().split(" ");
-			for (int j = 0; j < llavesIniciales.length; j++) {
-				llavesIniciales[i]=Integer.parseInt(valorLLavesInic[i]);
-			}
-
-			Cofre[] cofres= new Cofre[n];
-			for (int j = 0; j < cofres.length; j++) {
-				String infoCofre=br.readLine();
-				String[] infoCofreAr=infoCofre.split(" ");
-
-				int llaveMiaP = Integer.parseInt(infoCofreAr[0]);
-				int numLLaves= Integer.parseInt(infoCofreAr[1]);
-				String infoLlaves=infoCofre.substring(3);
-				String[] llavesContenidas=infoLlaves.split(" ");
-				int[] llavesContenidasP = new int[numLLaves];
-				for (int l = 0; l < numLLaves; l++) {
-					try{
-						llavesContenidasP[i]=Integer.parseInt(llavesContenidas[i]);
-					}catch(NumberFormatException e){}
-				}
-				final Cofre nuevo = yo.new Cofre(llaveMiaP, llavesContenidasP);
-				cofres[i]=nuevo;
-				System.out.println(cofres[i].toString());
-			}
-
-			String solucion = "Case #"+(i+1)+": "+rta;
-			//imprimirSolucion( solucion );			
-			i++;
-		}
-	}
-
-
-	private class Cofre{
 		private int llaveMia;
 		private int[] llavesContenidas;
 
@@ -92,23 +93,15 @@ public class Treasure
 			llavesContenidas=llavesContenidasP;
 		}
 
-		public int getLlaveMia() {
-			return llaveMia;
-		}
+		public int getLlaveMia(){return llaveMia;}
 
+		public int[] getLlavesContenidas(){return llavesContenidas;}
 
-		public int[] getLlavesContenidas() {
-			return llavesContenidas;
-		}
-
-		public String toString(){
+		public String toString()
+		{
 			String lasContenidas="";
-			for (int i = 0; i < llavesContenidas.length; i++) {
-				lasContenidas+=" "+llavesContenidas[i];
-			}
-			return llaveMia+lasContenidas;
-
+			for (int llaveContenida : llavesContenidas)lasContenidas+=" "+llaveContenida;
+			return llaveMia+"|"+lasContenidas;
 		}
-
 	}
 }

@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 
 public class T9Spelling
 {
-
 	private static PrintWriter pw;
 	private static boolean test;
 	private static BufferedReader br;

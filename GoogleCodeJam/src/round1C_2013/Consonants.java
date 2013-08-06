@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 
 public class Consonants
 {
-
 	private static PrintWriter pw;
 	private static boolean test;
 	private static BufferedReader br;

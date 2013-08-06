@@ -5,119 +5,89 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 public class Tic_Tac_Toe_Tomek
 {
-
 	private static PrintWriter pw;
 	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main( String[] args ) throws Exception
 	{
-		// Imprimir a la consola (true) o al archivo (false)
 		test = false;
-		String baseName = "A-large"; // Nombre del archivo
+		String carpeta = "./data/qRound_2013/Tic_Tac_Toe_Tomek/";
+		String archivo = "A-large-practice";
 
 		pw = null;
-		if( !test )
-		{
-			pw = new PrintWriter( new File( "./data/" + baseName + ".out" ) );
-		}
+		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
-		// Abrir el archivo con los datos de entrada
-		br = new BufferedReader( new FileReader( new File( "./data/" + baseName + ".in" ) ) );
+		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
+		solucionarProblema();
 
-		solucionarProblema( );
-
-		// Si no era una prueba, cerrar el archivo de salida
-		if( !test )
-		{
-			pw.close( );
-		}
-
+		if(!test)pw.close();
 	}
 
-	/**
-	 * Imprimir una solucion al problema <br/>
-	 * . Si el atributo test es verdadero, imprime a la salida estandar. Si es falso imprime al archivo de salida.
-	 * @param solucion
-	 */
-	private static void imprimirSolucion( String solucion )
-	{
-		if( test )
-		{
-			System.out.println( solucion );
-		}
-		else
-		{
-			pw.println( solucion );
-		}
-	}
-
-	/**
-	 * Este es el metodo que realmente soluciona el problema
-	 * @throws IOException
-	 */
 	private static void solucionarProblema( ) throws IOException
 	{
-		int cases = Integer.parseInt( br.readLine( ) );
-		int i = 0;
-		while( i < cases )
-		{
-			String rta = "";
-			final char[] n0 =  br.readLine( ).toCharArray();
-			final char[] n1 =  br.readLine( ).toCharArray();
-			final char[] n2 =  br.readLine( ).toCharArray();
-			final char[] n3 =  br.readLine( ).toCharArray();
+		int casos = Integer.parseInt(br.readLine());
+		for (int i = 0; i < casos; i++) {
+			
+			int tamTablero=4;
+			
+			final char[] n0 =  br.readLine().toCharArray();
+			final char[] n1 =  br.readLine().toCharArray();
+			final char[] n2 =  br.readLine().toCharArray();
+			final char[] n3 =  br.readLine().toCharArray();
 
 			char[][] matriz= {n0,n1,n2,n3};
 
 			char[] rtas=new char[10];
-			for (int j = 0; j < rtas.length; j++) {rtas[j]='Q';}
+			Arrays.fill(rtas, 'V');//V->Vacio
 
 			boolean hayPuntos=false;
-			for (int j = 0; j <4 ; j++) {
-				for (int k = 0; k < 4 ; k++) {
+			for (int j = 0; j <tamTablero ; j++) {
+				for (int ix = 0; ix < tamTablero ; ix++) {
 
-					char actual=matriz[j][k];
-					if(!hayPuntos&&actual=='.')hayPuntos=true;
+					char actual=matriz[j][ix];
+					hayPuntos=(hayPuntos||actual=='.');
 
 					if(j==0)lol(0,actual,rtas);
 					if(j==1)lol(1,actual,rtas);
 					if(j==2)lol(2,actual,rtas);
 					if(j==3)lol(3,actual,rtas);
-					if(k==0)lol(4,actual,rtas);
-					if(k==1)lol(5,actual,rtas);
-					if(k==2)lol(6,actual,rtas);
-					if(k==3)lol(7,actual,rtas);
-					if(j==k)lol(8,actual,rtas);
-					if(j==(3-k))lol(9,actual,rtas);
+					if(ix==0)lol(4,actual,rtas);
+					if(ix==1)lol(5,actual,rtas);
+					if(ix==2)lol(6,actual,rtas);
+					if(ix==3)lol(7,actual,rtas);
+					if(j==ix)lol(8,actual,rtas);
+					if(j==(tamTablero-ix-1))lol(9,actual,rtas);
 				}
 			}
-			rta=(hayPuntos)?"Game has not completed":"Draw";
-			for (int j = 0; j < rtas.length; j++) {
-				char esta=rtas[j];
-				if(esta!='W')rta=esta+" won";
-			}
+			
+			String rta=(hayPuntos)?"Game has not completed":"Draw";
+			ciclo: for (char r : rtas) if(r!='P')rta=r+" won";else break ciclo;
 
-			br.readLine( );
+			br.readLine();
 			String solucion = "Case #"+(i+1)+": "+rta;
-			imprimirSolucion( solucion );
-
-			i++;
+			imprimirSolucion(solucion);
 		}
 	}
 
 	private static void lol(int i, char actual, char[] rtas) {
 
-		if(rtas[i]=='Q')rtas[i]=actual;
+		if(rtas[i]=='V')rtas[i]=actual;
 		else{
 			if((rtas[i]=='T'&&actual=='X'||rtas[i]=='T'&&actual=='O')||(rtas[i]=='X'&&actual=='T'||rtas[i]=='O'&&actual=='T')||(rtas[i]=='X'&&actual=='X')||(rtas[i]=='O'&&actual=='O')){
-				if(actual!='T')rtas[i]=actual;
+				rtas[i]=(actual=='T')?rtas[i]:actual;
 			}
-			else rtas[i]='W';
+			else rtas[i]='P';
 		}
 	}
 
+	private static void imprimirSolucion(String solucion)
+	{
+		if(test)System.out.println(solucion);
+		else pw.println(solucion);
+	}
 }

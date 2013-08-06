@@ -9,7 +9,6 @@ import java.util.Arrays;
 
 public class MinimumScalarProduct
 {
-
 	private static PrintWriter pw;
 	private static boolean test;
 	private static BufferedReader br;
