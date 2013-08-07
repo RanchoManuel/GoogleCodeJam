@@ -16,10 +16,10 @@ public class ComparadorDeArchivos
 
 	public static void main(String[] args) throws Exception
 	{
-		//TODO
-		String carpeta = "./data/qRound_2010/SnapperChain/";// TODO
-		String archivoMio = "A-small-practice.out"; // TODO
-		String archivoCorrecto = "A-small-practice2.out"; // TODO
+		//TODO Poner las Rutas. Dado el caso.
+		String carpeta = "./data/qRound_2010/SnapperChain/";
+		String archivoMio = "A-small-practice.out";
+		String archivoCorrecto = "A-small-practice2.out";
 
 		File comparacion=new File(carpeta+"comparacion.txt");
 		pw = new PrintWriter(comparacion);
@@ -32,18 +32,20 @@ public class ComparadorDeArchivos
 		if(Desktop.isDesktopSupported())Desktop.getDesktop().open(comparacion);
 	}
 
-	private static void comparar() throws IOException {
-
+	private static void comparar() throws IOException 
+	{
 		pw.println("-----COMPARACION-----");
 
 		String linea1=br1.readLine();
 		String linea2=br2.readLine();
 		int diferencias=0;
 
-		while (linea1!=null){
+		while (linea1!=null&&linea2!=null)
+		{
 			String comp="";
 			if(linea1.equals(linea2))comp=linea1;
-			else{
+			else
+			{
 				String rtaCorrecta=linea2.split(":")[1];
 				comp=linea1+INDICATIVO_ERROR+rtaCorrecta;
 				diferencias++;

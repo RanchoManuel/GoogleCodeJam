@@ -20,7 +20,6 @@ public class FairandSquare
 		String carpeta = "./data/qRound_2013/FairandSquare/";
 		String archivo = "Test";//"A-small-practice"; // TODO
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -42,7 +41,8 @@ public class FairandSquare
 			long b=Long.parseLong(limites[1]);
 
 			long start=0;
-			try{
+			try
+			{
 				start = (long) Math.sqrt(a);
 			}
 			catch(RangeException e)
@@ -53,10 +53,7 @@ public class FairandSquare
 			ciclo:for (long j = start; j <=b ; j++)
 			{
 				long jCuadrado=j*j;
-				if(a<=jCuadrado&&jCuadrado<=b)
-				{
-					if(esPalindromo(j)&&esPalindromo(jCuadrado))rta++;
-				}
+				if(a<=jCuadrado && jCuadrado<=b) if(esPalindromo(j)&&esPalindromo(jCuadrado))rta++;
 				else break ciclo;
 			}
 

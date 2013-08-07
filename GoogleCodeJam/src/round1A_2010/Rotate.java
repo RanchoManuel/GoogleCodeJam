@@ -18,7 +18,6 @@ public class Rotate
 		String carpeta = "./data/round1A_2010/Rotate/";
 		String archivo = "Test";//"A-small-practice"; 
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -30,9 +29,9 @@ public class Rotate
 	private static void solucionarProblema() throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
-			// Separar informacion pertinente
+		for (int i = 0; i < casos; i++)
+		{
+			//Separar informacion pertinente
 
 			String[] paramJuego=br.readLine().split(" ");
 			int n=Integer.parseInt(paramJuego[0]);
@@ -50,13 +49,15 @@ public class Rotate
 		}
 	}
 
-	private static String solucionarCaso(char[][] tablero, int n, int k) {
-
+	private static String solucionarCaso(char[][] tablero, int n, int k) 
+	{
 		//Aplicar gravedad a la derecha del tablero
-		for (int j = 0; j < n; j++){
+		for (int j = 0; j < n; j++)
+		{
 			String puntos="",fichas="";
 
-			for (int i = 0; i < n; i++){
+			for (int i = 0; i < n; i++)
+			{
 				char actual=tablero[j][i];
 				if(actual=='.')puntos+=".";
 				else fichas+=actual;

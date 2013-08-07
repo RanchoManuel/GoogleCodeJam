@@ -18,7 +18,6 @@ public class ReverseWords
 		String carpeta="./data/qRound_2010_Africa/ReverseWords/";
 		String archivo = "B-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -30,8 +29,8 @@ public class ReverseWords
 	private static void solucionarProblema( ) throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
+		for (int i = 0; i < casos; i++)
+		{
 			// Separar informacion pertinente
 			
 			String frase =  br.readLine();
@@ -49,9 +48,7 @@ public class ReverseWords
 	private static String solucionarCaso(String[] palabras) 
 	{
 		String rta="";
-		for (int j = palabras.length-1; j >=0 ; j--) {
-			rta+=(j==0)?palabras[j]:palabras[j]+" ";
-		}
+		for (int j = palabras.length-1; j >=0 ; j--)rta+=(j==0)?palabras[j]:palabras[j]+" ";
 		return rta;
 	}
 

@@ -21,7 +21,6 @@ public class AlienNumbers
 		String carpeta = "./data/practiceProblems/AlienNumbers/";
 		String archivo = "A-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -33,8 +32,8 @@ public class AlienNumbers
 	private static void solucionarProblema() throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
+		for (int i = 0; i < casos; i++)
+		{
 			// Separar informacion pertinente
 
 			String[] paramNumeros=br.readLine().split(" ");
@@ -55,14 +54,14 @@ public class AlienNumbers
 	{
 		Map<Character, Integer>mOrigen=new HashMap<Character, Integer>();
 		int baseOrigen=lOrigen.length;
-		for (int i = 0; i < baseOrigen; i++)mOrigen.put(lOrigen[i],i);
+		for (int i = 0; i < baseOrigen; i++) mOrigen.put(lOrigen[i],i);
 
 		long numBase10=0;
-		for (int i = 0; i <numero.length; i++)numBase10+=mOrigen.get(numero[i])*Math.pow(baseOrigen,numero.length-i-1);
+		for (int i = 0; i <numero.length; i++) numBase10+=mOrigen.get(numero[i])*Math.pow(baseOrigen,numero.length-i-1);
 
 		Map<Long, Character>mDestino=new HashMap<Long, Character>();
 		int baseDestino=lDestino.length;
-		for (long i = 0; i < baseDestino; i++)mDestino.put(i,lDestino[(int) i]);
+		for (long i = 0; i < baseDestino; i++) mDestino.put(i,lDestino[(int) i]);
 
 		ArrayList<Long> aux = new ArrayList<Long>();
 		while (numBase10 > 0) 
@@ -73,8 +72,7 @@ public class AlienNumbers
 		}
 
 		String rta="";
-		for (int i = aux.size() - 1; i >= 0; i--)rta += mDestino.get(aux.get(i));
-
+		for (int i = aux.size()-1; i >= 0; i--)rta += mDestino.get(aux.get(i));
 		return rta;
 	}
 

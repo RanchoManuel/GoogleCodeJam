@@ -20,7 +20,6 @@ public class FileFix_it
 		String carpeta = "./data/round1B_2010/FileFix-it/";
 		String archivo = "A-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -32,32 +31,36 @@ public class FileFix_it
 	private static void solucionarProblema() throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
-			// Separar informacion pertinente
+		for (int i = 0; i < casos; i++)
+		{
+			//Separar informacion pertinente
 
 			String[] paramDirs=br.readLine().split(" ");
 			int numActuales=Integer.parseInt(paramDirs[0]);
 			int numNuevos=Integer.parseInt(paramDirs[1]);
 			
-			// Solucionar para el caso
+			//Solucionar para el caso
 
 			int rta=0;
 			Set<String> directorios=new HashSet<String>();
 
-			for (int j = 0; j < numActuales; j++) {
+			for (int j = 0; j < numActuales; j++) 
+			{
 				String[] carpetas=br.readLine().split("/");
 				String carpetaDinamica="";
-				for (int k = 1; k < carpetas.length; k++) {
+				for (int k = 1; k < carpetas.length; k++)
+				{
 					carpetaDinamica+=("/"+carpetas[k]);
 					directorios.add(carpetaDinamica);
 				}
 			}
 			
-			for (int j = 0; j < numNuevos; j++) {
+			for (int j = 0; j < numNuevos; j++) 
+			{
 				String[] carpetasNuevas=br.readLine().split("/");
 				String carpetaDinamica="";
-				for (int k = 1; k < carpetasNuevas.length; k++) {
+				for (int k = 1; k < carpetasNuevas.length; k++) 
+				{
 					carpetaDinamica+=("/"+carpetasNuevas[k]);
 					if(directorios.add(carpetaDinamica))rta++;
 				}

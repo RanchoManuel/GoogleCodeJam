@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class AllYourBase 
 {
-	private static final char[] valores={'1','0','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+	private static final char[] valores="1023456789abcdefghijklmnopqrstuvwxyz".toCharArray();
 	private static PrintWriter pw;
 	private static boolean test;
 	private static BufferedReader br;
@@ -22,7 +22,6 @@ public class AllYourBase
 		String carpeta = "./data/round1C_2009/AllYourBase/";
 		String archivo ="A-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -49,14 +48,15 @@ public class AllYourBase
 		}
 	}
 
-	private static long solucionarCaso(char[] mensaje) {
-
-		// solucionar el problema
+	private static long solucionarCaso(char[] mensaje)
+	{
 		Set<Character>simbolos=new HashSet<Character>();
 		HashMap<Character, Character>ordenCaract=new HashMap<Character, Character>();
 		int i=0;
-		for (char digit : mensaje) {
-			if(simbolos.add(digit)) {
+		for (char digit : mensaje)
+		{
+			if(simbolos.add(digit)) 
+			{
 				ordenCaract.put(digit, valores[i]);
 				i++;
 			}

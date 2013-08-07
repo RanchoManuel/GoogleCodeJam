@@ -19,7 +19,6 @@ public class MinimumScalarProduct
 		String carpeta = "./data/round1A_2008/MinimumScalarProduct/";
 		String archivo = "A-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -31,11 +30,11 @@ public class MinimumScalarProduct
 	private static void solucionarProblema() throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
+		for (int i = 0; i < casos; i++) 
+		{
 			String rta = "";
 
-			// Separar informacion pertinente
+			//Separar informacion pertinente
 
 			int tamanio=Integer.parseInt(br.readLine());
 
@@ -58,13 +57,11 @@ public class MinimumScalarProduct
 
 	private static String solucionarCaso(int tamanio, int[] vector1, int[] vector2)
 	{
-		long rta=0;
-
 		Arrays.sort(vector1);
 		Arrays.sort(vector2);
 
-		for (int i = 0; i < tamanio; i++) rta+= (long)vector1[i]*(long)vector2[(tamanio-1)-i];
-
+		long rta=0;
+		for (int i = 0; i < tamanio; i++) rta+=(long)vector1[i]*(long)vector2[(tamanio-1)-i];
 		return rta+"";
 	}
 

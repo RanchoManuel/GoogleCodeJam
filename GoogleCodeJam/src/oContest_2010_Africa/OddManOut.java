@@ -1,13 +1,14 @@
-package qRound_2009;
+package oContest_2010_Africa;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.regex.Pattern;
+import java.util.HashSet;
+import java.util.Set;
 
-public class AlienLanguage
+public class OddManOut
 {
 	private static PrintWriter pw;
 	private static boolean test;
@@ -16,9 +17,9 @@ public class AlienLanguage
 	public static void main(String[] args) throws Exception
 	{
 		test = false;
-		String carpeta = "./data/qRound_2009/AlienLanguage/";
+		String carpeta = "./data/oContest_2010_Africa/OddManOut/";
 		String archivo = "A-large-practice";
-		
+
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -29,33 +30,33 @@ public class AlienLanguage
 
 	private static void solucionarProblema() throws IOException
 	{
-		// Separar informacion pertinente
-
-		String[] paramLenguaje=br.readLine().split(" ");
-		int numPalabras_D =Integer.parseInt(paramLenguaje[1]);
-		int casos_N =Integer.parseInt(paramLenguaje[2]);
-
-		String[] diccionario=new String[numPalabras_D]; 
-		for (int i = 0; i < numPalabras_D; i++) diccionario[i]=br.readLine();
-
-		//---------------------------------------------
-
-		for (int i = 0; i < casos_N; i++) 
+		int casos = Integer.parseInt(br.readLine());
+		for (int i = 0; i < casos; i++) 
 		{
-			int rta=solucionarCaso(diccionario,br.readLine());
+			//Separar informacion pertinente
+			
+			br.readLine();
+			String[] invitaciones=br.readLine().split(" ");
+			
+			String rta = solucionarCaso(invitaciones);
+			
+			//---------------------------------------------
 
 			String solucion = "Case #"+(i+1)+": "+rta;
 			imprimirSolucion(solucion);
 		}
 	}
-
-	private static int solucionarCaso(String[] diccionario, String mensaje) 
+	
+	private static String solucionarCaso( String[] invitaciones) 
 	{
-		int rta=0;
+		Set<String>todos=new HashSet<String>(), aparejados=new HashSet<String>();
 		
-		String mascara=mensaje.replace("(", "[").replace(")", "]");
-		for (String palabra : diccionario) if(Pattern.matches(mascara,palabra))rta++;
+		for (String invit : invitaciones)if(!todos.add(invit))aparejados.add(invit);
 		
+		todos.removeAll(aparejados);
+		
+		String rta="";
+		for (String solo : todos)rta=solo;
 		return rta;
 	}
 

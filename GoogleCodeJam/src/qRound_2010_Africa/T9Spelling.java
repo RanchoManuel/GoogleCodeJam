@@ -26,7 +26,6 @@ public class T9Spelling
 		String carpeta = "./data/qRound_2010_Africa/T9Spelling";
 		String archivo = "C-large-practice";
 		
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -38,9 +37,9 @@ public class T9Spelling
 	private static void solucionarProblema() throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
-			// Separar informacion pertinente
+		for (int i = 0; i < casos; i++) 
+		{
+			//Separar informacion pertinente
 
 			char[] mensaje = br.readLine().toCharArray();
 
@@ -58,13 +57,15 @@ public class T9Spelling
 		String rta="";
 		char ultimaTecla=0;
 
-		for (int i = 0; i < mensaje.length; i++) {
+		for (int i = 0; i < mensaje.length; i++)
+		{
 			int letraActual = mensaje[i];
 			String aEscribir="";
 			char teclaActual='0';
 
 			if(letraActual==' ')aEscribir="0";
-			else{
+			else
+			{
 				aEscribir=letras[letraActual-'a'];
 				teclaActual=teclas[letraActual-'a'];
 			}
@@ -72,6 +73,7 @@ public class T9Spelling
 			rta+=(teclaActual==ultimaTecla)?" "+aEscribir:aEscribir;
 			ultimaTecla=teclaActual;
 		}
+		
 		return rta;
 	}
 

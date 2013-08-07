@@ -22,7 +22,6 @@ public class Treasure
 		String carpeta = "./data/qRound_2013/Treasure/";
 		String archivo = "Test";//"A-small-practice"; // TODO
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));

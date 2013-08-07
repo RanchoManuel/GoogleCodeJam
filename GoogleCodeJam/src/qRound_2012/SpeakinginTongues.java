@@ -29,7 +29,6 @@ public class SpeakinginTongues
 //		brT = new BufferedReader(new FileReader(new File(carpeta+"Traduccion.in")));
 //		preProcesar();
 		
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -72,14 +71,14 @@ public class SpeakinginTongues
 		char[] traduccion="cvsoheybkgluixdfpjwntramzq ".toCharArray();
 		
 		Map<Character, Character> correspondencias=new HashMap<Character, Character>();
-		for (int i = 0; i < googlerese.length; i++)correspondencias.put(googlerese[i], traduccion[i]);
+		for (int i = 0; i < googlerese.length; i++) correspondencias.put(googlerese[i], traduccion[i]);
 		
 		int casos = Integer.parseInt(br.readLine());
 		for (int i = 0; i < casos; i++) 
 		{
 			char[] linea=br.readLine().toCharArray();
 			String rta = "";
-			for (char c : linea)rta+=correspondencias.get(c);
+			for (char c : linea) rta+=correspondencias.get(c);
 
 			String solucion = "Case #"+(i+1)+": "+rta;
 			imprimirSolucion(solucion);

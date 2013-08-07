@@ -19,7 +19,6 @@ public class Tic_Tac_Toe_Tomek
 		String carpeta = "./data/qRound_2013/Tic_Tac_Toe_Tomek/";
 		String archivo = "A-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -31,8 +30,8 @@ public class Tic_Tac_Toe_Tomek
 	private static void solucionarProblema( ) throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-			
+		for (int i = 0; i < casos; i++)
+		{
 			int tamTablero=4;
 			
 			final char[] n0 =  br.readLine().toCharArray();
@@ -47,8 +46,8 @@ public class Tic_Tac_Toe_Tomek
 
 			boolean hayPuntos=false;
 			for (int j = 0; j <tamTablero ; j++) {
-				for (int ix = 0; ix < tamTablero ; ix++) {
-
+				for (int ix = 0; ix < tamTablero ; ix++) 
+				{
 					char actual=matriz[j][ix];
 					hayPuntos=(hayPuntos||actual=='.');
 
@@ -74,8 +73,8 @@ public class Tic_Tac_Toe_Tomek
 		}
 	}
 
-	private static void lol(int i, char actual, char[] rtas) {
-
+	private static void lol(int i, char actual, char[] rtas) 
+	{
 		if(rtas[i]=='V')rtas[i]=actual;
 		else{
 			if((rtas[i]=='T'&&actual=='X'||rtas[i]=='T'&&actual=='O')||(rtas[i]=='X'&&actual=='T'||rtas[i]=='O'&&actual=='T')||(rtas[i]=='X'&&actual=='X')||(rtas[i]=='O'&&actual=='O')){

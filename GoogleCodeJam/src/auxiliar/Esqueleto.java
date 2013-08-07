@@ -16,9 +16,8 @@ public class Esqueleto
 	{
 		test = true;
 		String carpeta = "./data/competencia/problema/";// TODO
-		String archivo = "Test";//"A-small-practice"; // TODO
+		String archivo = "Test";//"A-small-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -30,9 +29,9 @@ public class Esqueleto
 	private static void solucionarProblema() throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
-			// TODO Separar informacion pertinente
+		for (int i = 0; i < casos; i++)
+		{
+			//Separar informacion pertinente
 			
 			String rta = solucionarCaso();
 			
@@ -43,9 +42,9 @@ public class Esqueleto
 		}
 	}
 	
-	private static String solucionarCaso() {
+	private static String solucionarCaso() 
+	{
 		String rta="";
-		// TODO solucionar el problema
 		return rta;
 	}
 

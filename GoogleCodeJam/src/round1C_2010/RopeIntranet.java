@@ -18,7 +18,6 @@ public class RopeIntranet
 		String carpeta = "./data/round1C_2010/RopeIntranet/";
 		String archivo = "A-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));

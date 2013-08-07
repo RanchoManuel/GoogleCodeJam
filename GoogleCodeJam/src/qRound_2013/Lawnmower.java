@@ -19,7 +19,6 @@ public class Lawnmower
 		String carpeta = "./data/qRound_2013/Lawnmower/";
 		String archivo = "Test";//"A-small-practice"; // TODO
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));

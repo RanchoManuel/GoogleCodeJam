@@ -18,7 +18,6 @@ public class Tic_Tac_Toe_Tomek2
 		String carpeta = "./data/qRound_2013/Tic_Tac_Toe_Tomek/";
 		String archivo = "A-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -30,9 +29,9 @@ public class Tic_Tac_Toe_Tomek2
 	private static void solucionarProblema() throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
-			// Separar informacion pertinente
+		for (int i = 0; i < casos; i++)
+		{
+			//Separar informacion pertinente
 
 			int tamTablero=4;
 
@@ -52,7 +51,8 @@ public class Tic_Tac_Toe_Tomek2
 		}
 	}
 
-	private static String solucionarCaso(int tamTablero, char[][] tablero) {
+	private static String solucionarCaso(int tamTablero, char[][] tablero) 
+	{
 		int[] filasX=new int[tamTablero], columnsX=new int[tamTablero];
 		int[] filasO=new int[tamTablero], columnsO=new int[tamTablero];
 		int diagSupX=0,diagInfX=0;
@@ -60,22 +60,25 @@ public class Tic_Tac_Toe_Tomek2
 		boolean hayPuntos=false;
 		
 		for (int j = 0; j < tamTablero; j++) {
-			for (int i = 0; i < tamTablero; i++) {
-
+			for (int i = 0; i < tamTablero; i++) 
+			{
 				char ficha=tablero[j][i];
-				if (ficha=='X') {
+				if (ficha=='X') 
+				{
 					filasX[i]++;
 					columnsX[j]++;
 					if(i==j)diagSupX++;
 					if((tamTablero-i-1)==j)diagInfX++;
 				}
-				else if(ficha=='O') {
+				else if(ficha=='O')
+				{
 					filasO[i]++;
 					columnsO[j]++;
 					if(i==j)diagSupO++;
 					if((tamTablero-i-1)==j)diagInfO++;
 				}
-				else if(ficha=='T') {
+				else if(ficha=='T') 
+				{
 					filasX[i]++;
 					columnsX[j]++;
 					filasO[i]++;

@@ -18,7 +18,6 @@ public class SnapperChain
 		String carpeta = "./data/qRound_2010/SnapperChain/";
 		String archivo = "A-large-practice";
 
-		pw = null;
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
 
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
@@ -30,8 +29,8 @@ public class SnapperChain
 	private static void solucionarProblema() throws IOException
 	{
 		int casos = Integer.parseInt(br.readLine());
-		for (int i = 0; i < casos; i++) {
-
+		for (int i = 0; i < casos; i++)
+		{
 			// Separar informacion pertinente
 
 			String[] paramProblem=br.readLine().split(" ");
@@ -46,7 +45,8 @@ public class SnapperChain
 		}
 	}
 
-	private static String solucionarCaso(int n, int k) {
+	private static String solucionarCaso(int n, int k) 
+	{
 		String binario=Integer.toBinaryString(k);
 		String ceros="";
 		
