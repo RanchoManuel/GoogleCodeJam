@@ -9,13 +9,13 @@ import java.util.Arrays;
 
 public class Tic_Tac_Toe_Tomek
 {
+	private static boolean test=false;
+	
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main( String[] args ) throws Exception
 	{
-		test = false;
 		String carpeta = "./data/qRound_2013/Tic_Tac_Toe_Tomek/";
 		String archivo = "A-large-practice";
 
@@ -32,6 +32,7 @@ public class Tic_Tac_Toe_Tomek
 		int casos = Integer.parseInt(br.readLine());
 		for (int i = 0; i < casos; i++)
 		{
+			//Separar informacion & Procesar caso
 			int tamTablero=4;
 			
 			final char[] n0 =  br.readLine().toCharArray();
@@ -66,8 +67,10 @@ public class Tic_Tac_Toe_Tomek
 			
 			String rta=(hayPuntos)?"Game has not completed":"Draw";
 			ciclo: for (char r : rtas) if(r!='P')rta=r+" won";else break ciclo;
-
 			br.readLine();
+			
+			//---------------------------------------------
+			
 			String solucion = "Case #"+(i+1)+": "+rta;
 			imprimirSolucion(solucion);
 		}

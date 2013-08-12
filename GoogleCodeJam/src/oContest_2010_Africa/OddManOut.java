@@ -10,13 +10,13 @@ import java.util.Set;
 
 public class OddManOut
 {
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = false;
 		String carpeta = "./data/oContest_2010_Africa/OddManOut/";
 		String archivo = "A-large-practice";
 

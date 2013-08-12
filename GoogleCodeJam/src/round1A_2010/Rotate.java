@@ -8,13 +8,13 @@ import java.io.PrintWriter;
 
 public class Rotate
 {
+	private static boolean test=true;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = true;
 		String carpeta = "./data/round1A_2010/Rotate/";
 		String archivo = "Test";//"A-small-practice"; 
 

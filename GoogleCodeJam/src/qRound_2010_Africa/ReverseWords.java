@@ -8,13 +8,13 @@ import java.io.PrintWriter;
 
 public class ReverseWords
 {
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = false;
 		String carpeta="./data/qRound_2010_Africa/ReverseWords/";
 		String archivo = "B-large-practice";
 

@@ -8,13 +8,13 @@ import java.io.PrintWriter;
 
 public class Tic_Tac_Toe_Tomek2
 {
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = false;
 		String carpeta = "./data/qRound_2013/Tic_Tac_Toe_Tomek/";
 		String archivo = "A-large-practice";
 
@@ -40,12 +40,12 @@ public class Tic_Tac_Toe_Tomek2
 			char[] f2=br.readLine().toCharArray();
 			char[] f3=br.readLine().toCharArray();
 			char[][] tablero= {f0,f1,f2,f3};
+			br.readLine();
 
 			String rta = solucionarCaso(tamTablero,tablero);
 
 			//---------------------------------------------
 
-			br.readLine();
 			String solucion = "Case #"+(i+1)+": "+rta;
 			imprimirSolucion(solucion);
 		}
@@ -59,7 +59,8 @@ public class Tic_Tac_Toe_Tomek2
 		int diagSupO=0,diagInfO=0;
 		boolean hayPuntos=false;
 		
-		for (int j = 0; j < tamTablero; j++) {
+		for (int j = 0; j < tamTablero; j++)
+		{
 			for (int i = 0; i < tamTablero; i++) 
 			{
 				char ficha=tablero[j][i];

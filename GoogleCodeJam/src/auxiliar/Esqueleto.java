@@ -8,13 +8,13 @@ import java.io.PrintWriter;
 
 public class Esqueleto
 {
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = true;
 		String carpeta = "./data/competencia/problema/";// TODO
 		String archivo = "Test";//"A-small-practice";
 

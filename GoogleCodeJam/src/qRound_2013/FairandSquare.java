@@ -10,13 +10,13 @@ import org.w3c.dom.ranges.RangeException;
 
 public class FairandSquare
 {
+	private static boolean test=true;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main( String[] args ) throws Exception
 	{
-		test = true;
 		String carpeta = "./data/qRound_2013/FairandSquare/";
 		String archivo = "Test";//"A-small-practice"; // TODO
 

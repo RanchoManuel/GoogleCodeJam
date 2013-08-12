@@ -11,13 +11,13 @@ import java.util.Map;
 
 public class AlienNumbers
 {
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = false;
 		String carpeta = "./data/practiceProblems/AlienNumbers/";
 		String archivo = "A-large-practice";
 

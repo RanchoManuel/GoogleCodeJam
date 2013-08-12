@@ -9,13 +9,13 @@ import java.util.Arrays;
 
 public class Lawnmower
 {
+	private static boolean test=true;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main( String[] args ) throws Exception
 	{
-		test = true;
 		String carpeta = "./data/qRound_2013/Lawnmower/";
 		String archivo = "Test";//"A-small-practice"; // TODO
 
@@ -51,6 +51,8 @@ public class Lawnmower
 				}
 			}
 
+			//---------------------------------------------
+			
 			String rta=solucionarCaso(m,n,matriz,masAlta);
 
 			String solucion = "Case #"+(i+1)+": "+rta;

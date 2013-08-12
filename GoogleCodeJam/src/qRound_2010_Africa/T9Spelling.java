@@ -8,21 +8,20 @@ import java.io.PrintWriter;
 
 public class T9Spelling
 {
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	private static String[] letras = {"2","22","222","3","33","333",
 		"4","44","444",	"5","55","555",	"6","66","666",
 		"7","77","777","7777","8","88","888","9","99","999","9999"};
-
 	private static char[] teclas = {'2','2','2','3','3','3',
 		'4','4','4','5','5','5','6','6','6',
 		'7','7','7','7','8','8','8','9','9','9','9'};
 
 	public static void main(String[] args) throws Exception
 	{
-		test = false;
 		String carpeta = "./data/qRound_2010_Africa/T9Spelling";
 		String archivo = "C-large-practice";
 		

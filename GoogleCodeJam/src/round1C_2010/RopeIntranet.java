@@ -8,13 +8,13 @@ import java.io.PrintWriter;
 
 public class RopeIntranet
 {
+	private static boolean test=false;
+	
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = true;
 		String carpeta = "./data/round1C_2010/RopeIntranet/";
 		String archivo = "A-large-practice";
 

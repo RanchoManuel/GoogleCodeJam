@@ -12,8 +12,9 @@ import java.util.TreeSet;
 
 public class SpeakinginTongues
 {
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 	
 	private static BufferedReader brG;

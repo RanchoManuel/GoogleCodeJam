@@ -11,14 +11,15 @@ import java.util.Set;
 
 public class AllYourBase 
 {
-	private static final char[] valores="1023456789abcdefghijklmnopqrstuvwxyz".toCharArray();
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
+
+	private static final char[] valores="1023456789abcdefghijklmnopqrstuvwxyz".toCharArray();
 
 	public static void main(String[] args) throws Exception
 	{
-		test = false;
 		String carpeta = "./data/round1C_2009/AllYourBase/";
 		String archivo ="A-large-practice";
 

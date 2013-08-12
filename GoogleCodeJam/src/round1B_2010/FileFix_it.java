@@ -10,13 +10,13 @@ import java.util.Set;
 
 public class FileFix_it
 {
+	private static boolean test=false;
+
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = false;
 		String carpeta = "./data/round1B_2010/FileFix-it/";
 		String archivo = "A-large-practice";
 
@@ -39,7 +39,7 @@ public class FileFix_it
 			int numActuales=Integer.parseInt(paramDirs[0]);
 			int numNuevos=Integer.parseInt(paramDirs[1]);
 			
-			//Solucionar para el caso
+			//Procesar caso
 
 			int rta=0;
 			Set<String> directorios=new HashSet<String>();

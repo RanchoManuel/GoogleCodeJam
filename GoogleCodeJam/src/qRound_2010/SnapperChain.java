@@ -8,13 +8,13 @@ import java.io.PrintWriter;
 
 public class SnapperChain
 {
+	private static boolean test=false;
+	
 	private static PrintWriter pw;
-	private static boolean test;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		test = false;
 		String carpeta = "./data/qRound_2010/SnapperChain/";
 		String archivo = "A-large-practice";
 
@@ -40,6 +40,7 @@ public class SnapperChain
 			String rta = solucionarCaso(n,k);
 
 			//---------------------------------------------
+			
 			String solucion = "Case #"+(i+1)+": "+rta;
 			imprimirSolucion(solucion);
 		}
