@@ -64,6 +64,7 @@ public class AlienNumbers
 		for (long i = 0; i < baseDestino; i++) mDestino.put(i,lDestino[(int) i]);
 
 		ArrayList<Long> aux = new ArrayList<Long>();
+		if(numBase10==0)aux.add((long) 0);
 		while (numBase10 > 0) 
 		{
 			long residuo = numBase10 % baseDestino;
@@ -72,7 +73,7 @@ public class AlienNumbers
 		}
 
 		String rta="";
-		for (int i = aux.size()-1; i >= 0; i--)rta += mDestino.get(aux.get(i));
+		for (int i = aux.size()-1; i >= 0; i--) rta+=mDestino.get(aux.get(i));
 		return rta;
 	}
 
