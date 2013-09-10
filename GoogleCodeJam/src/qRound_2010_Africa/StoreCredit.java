@@ -23,6 +23,7 @@ public class StoreCredit
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
 		solucionarProblema();
 
+		br.close();
 		if(!test)pw.close();
 	}
 

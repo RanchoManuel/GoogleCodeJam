@@ -23,6 +23,7 @@ public class Tic_Tac_Toe_Tomek2
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
 		solucionarProblema();
 
+		br.close();
 		if(!test)pw.close();
 	}
 

@@ -8,14 +8,14 @@ import java.io.PrintWriter;
 
 public class Esqueleto
 {
-	private static boolean test=false;
+	private static boolean test=true;
 
 	private static PrintWriter pw;
 	private static BufferedReader br;
 
 	public static void main(String[] args) throws Exception
 	{
-		String carpeta = "./data/competencia/problema/";// TODO
+		String carpeta = "./data/competencia/problema/";
 		String archivo = "Test";//"A-small-practice";
 
 		if(!test)pw = new PrintWriter(new File(carpeta+archivo+".out"));
@@ -23,6 +23,7 @@ public class Esqueleto
 		br = new BufferedReader(new FileReader(new File(carpeta+archivo+".in")));
 		solucionarProblema();
 
+		br.close();
 		if(!test)pw.close();
 	}
 
