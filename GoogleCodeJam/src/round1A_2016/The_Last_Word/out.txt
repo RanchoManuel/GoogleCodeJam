@@ -1,0 +1,7 @@
+Case #1: BCA
+Case #2: MJA
+Case #3: EDOC
+Case #4: BBAAA
+Case #5: CBBBCBCAA
+Case #6: CBCBCBAAA
+Case #7: EWQDSZXCA
