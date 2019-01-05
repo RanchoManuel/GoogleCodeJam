@@ -2,8 +2,8 @@
 
 reset
 javac Main.java
-java Main < in.txt
-java Main < A-small-practice.in  > A-small-practice.out
+#java Main < in.txt
+java Main < A-large-practice.in  > A-large-practice.out
 echo "-------Exit code: $?-------"
 
 #g++ -o MainCpp Main.cpp

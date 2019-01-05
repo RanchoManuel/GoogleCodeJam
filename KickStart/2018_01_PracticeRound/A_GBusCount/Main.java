@@ -47,7 +47,11 @@ public class Main
 			City newFrom = new City(from, 0);
 			City newTo = new City(to, 0);
 			cities.add(newFrom);
+			if (from-1 > 0) cities.add(new City(from-1, 0));
+			cities.add(new City(from+1, 0));
 			cities.add(newTo);
+			if (to-1 > 0) cities.add(new City(to-1, 0));
+			cities.add(new City(to+1, 0));
 		}
 
 		City[] arrayCities = cities.toArray(new City[cities.size()]);
@@ -71,7 +75,7 @@ public class Main
 			if (posCity < 0) {
 				posCity = (-(posCity) - 1);
 				// System.out.println("city: " + city + " posCity:" + posCity);
-				rta += (posCity>0 && posCity<arrayCities.length) ? arrayCities[posCity-1].busses : 0;
+				rta += (posCity>0 && posCity<arrayCities.length) ? arrayCities[posCity].busses : 0;
 			} else rta += arrayCities[posCity].busses;
 		}
 		return rta;
