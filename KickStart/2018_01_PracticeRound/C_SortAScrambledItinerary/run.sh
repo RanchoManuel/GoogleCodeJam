@@ -1,9 +1,9 @@
 #!/bin/bash
 
 reset
-javac Main.java
-java Main < in.txt
-#java Main < A-large-practice.in  > A-large-practice.out
+javac -Xlint Main.java
+#java Main < in.txt
+java Main < C-large-practice.in  > C-large-practice.out
 echo "-------Exit code: $?-------"
 
 #g++ -o MainCpp Main.cpp
