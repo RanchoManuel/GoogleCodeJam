@@ -28,13 +28,17 @@ public class Main
 		StringBuilder sb1 = new StringBuilder();
 		for (int i=0; i<10; i++) {
 			char[] secondPart = sb0.toString().toCharArray();
-			for (int j=0; j<=secondPart.length/2; j++) {
+			for (int j=0; j<secondPart.length/2; j++) {
+				char temp = secondPart[j]; 
 				secondPart[j] = secondPart[secondPart.length-1-j];
+				secondPart[secondPart.length-1-j] = temp;
 			}
-			String lol =  new String(secondPart);
-			lol = lol.replaceAll("0", "_").replaceAll("1", "0").replaceAll("_", "1");
+			for (int j=0; j<secondPart.length; j++) {
+				if (secondPart[j] == '0') secondPart[j] = '1';
+				else if (secondPart[j] == '1') secondPart[j] = '0';
+			}
 
-			sb1 = sb0.append("0").append(lol);
+			sb1 = sb0.append("0").append(secondPart);
 			System.out.println(sb1);
 			System.out.println();
 
