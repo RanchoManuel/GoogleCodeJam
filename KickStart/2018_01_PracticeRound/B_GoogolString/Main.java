@@ -26,7 +26,8 @@ public class Main
 	private static void construirSecuencia() {
 		StringBuilder sb0 = new StringBuilder("0");
 		StringBuilder sb1 = new StringBuilder();
-		for (int i=0; i<10; i++) {
+		double desiredSecuence = Math.pow(10, 100);
+		for (double i=0; i<desiredSecuence; i++) {
 			char[] secondPart = sb0.toString().toCharArray();
 			for (int j=0; j<secondPart.length/2; j++) {
 				char temp = secondPart[j]; 
@@ -39,11 +40,11 @@ public class Main
 			}
 
 			sb1 = sb0.append("0").append(secondPart);
-			System.out.println(sb1);
-			System.out.println();
-
 			sb0 = sb1;
 		}
+
+		System.out.println(sb1);
+
 	}
 
 	private static String solucionarCaso(long d)
